@@ -24,18 +24,23 @@ namespace DiaryApp
                 switch (choice)
                 {
                     case MenuChoice.WriteNote:
+                        Console.Clear();
                         DiaryMethods.WriteNote();
                         break;
                     case MenuChoice.ShowEntries:
+                        Console.Clear();
                         DiaryMethods.ShowEntries();
                         break;
                     case MenuChoice.ShowEntryOnDate:
+                        Console.Clear();
                         DiaryMethods.ShowEntryOnDate();
                         break;
                     case MenuChoice.SaveEntries:
+                        Console.Clear();
                         Serializer.SaveEntries();
                         break;
                     case MenuChoice.LoadEntries:
+                        Console.Clear();
                         Serializer.LoadEntries();
                         break;
                     case MenuChoice.Exit:

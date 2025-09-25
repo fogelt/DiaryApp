@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-
 namespace DiaryApp
 {
     public class DiaryMethods
     {
         internal static void WriteNote()
         {
-            Console.Clear();
             Console.Write("New entry: ");
             string? input = Console.ReadLine();
 
@@ -18,12 +14,19 @@ namespace DiaryApp
                 Program.LocalEntries.Add(entry);
                 Program.LocalEntriesWithDate[entry.Date.Date] = entry;
             }
+            else
+            {
+                Console.WriteLine("Entry cannot be empty -- Invalid entry");
+            }
             MethodFinished();
         }
 
         internal static void ShowEntries()
         {
-            Console.Clear();
+            if (Program.LocalEntries.Count == 0)
+            {
+                Console.WriteLine("There are no entries in the diary");
+            }
             foreach (var entry in Program.LocalEntries)
             {
                 Console.WriteLine($"{entry.Date}: {entry.Text}");
@@ -33,7 +36,6 @@ namespace DiaryApp
 
         internal static void ShowEntryOnDate()
         {
-            Console.Clear();
             Console.Write("Enter a date (yyyy-MM-dd): ");
             string? input = Console.ReadLine();
 
