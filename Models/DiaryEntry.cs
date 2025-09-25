@@ -1,4 +1,4 @@
-namespace DiaryApp
+namespace DiaryApp.Models
 {
     public class DiaryEntry
     {

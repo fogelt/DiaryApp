@@ -1,4 +1,4 @@
-namespace DiaryApp
+namespace DiaryApp.UI
 {
 
     public enum MenuChoice
@@ -9,6 +9,8 @@ namespace DiaryApp
         ShowEntryOnDate = 3,
         SaveEntries = 4,
         LoadEntries = 5,
-        Exit = 6
+        RemoveEntry = 6,
+        EditEntry = 7,
+        Exit = 8
     }
 }

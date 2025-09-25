@@ -1,12 +1,15 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using DiaryApp.UI;
+using DiaryApp.Services;
+using DiaryApp.Models;
 
 namespace DiaryApp
 {
     public class Program
     {
         public static List<DiaryEntry> LocalEntries = new List<DiaryEntry>();
-        public static Dictionary<DateTime, DiaryEntry> LocalEntriesWithDate = new Dictionary<DateTime, DiaryEntry>();
+        public static Dictionary<DateTime, List<DiaryEntry>> LocalEntriesWithDate
+    = new Dictionary<DateTime, List<DiaryEntry>>();
+
         static void Main()
         {
             while (true)
@@ -17,7 +20,9 @@ namespace DiaryApp
                 Console.WriteLine("3. Show all entries on a specific date");
                 Console.WriteLine("4. Save entries to file");
                 Console.WriteLine("5. Read entries from file");
-                Console.WriteLine("6. Exit program");
+                Console.WriteLine("6. Remove entry - (extra)");
+                Console.WriteLine("7. Edit entry - extra)");
+                Console.WriteLine("8. Exit program");
 
                 MenuChoice choice = GetMenuChoice();
 
@@ -43,11 +48,21 @@ namespace DiaryApp
                         Console.Clear();
                         Serializer.LoadEntries();
                         break;
+                     case MenuChoice.RemoveEntry:
+                        Console.Clear();
+                        DiaryMethods.DeleteEntry();
+                        break;
+                     case MenuChoice.EditEntry:
+                        Console.Clear();
+                        DiaryMethods.UpdateEntry();
+                        break;
                     case MenuChoice.Exit:
                         Console.WriteLine("---Exiting---");
                         return;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Invalid choice!");
+                        DiaryMethods.MethodFinished();
                         break;
                 }
 
