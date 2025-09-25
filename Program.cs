@@ -25,16 +25,22 @@ namespace DiaryApp
                 switch (choice)
                 {
                     case MenuChoice.WriteNote:
+                        Serializer.WriteNote();
                         break;
                     case MenuChoice.ShowEntries:
+                        Serializer.ShowEntries();
                         break;
                     case MenuChoice.ShowEntryOnDate:
+                        Serializer.ShowEntryOnDate();
                         break;
                     case MenuChoice.SaveEntries:
+                        Serializer.SaveEntries();
                         break;
                     case MenuChoice.LoadEntries:
+                        Serializer.LoadEntries();
                         break;
                     case MenuChoice.Exit:
+                        Console.WriteLine("---Exiting---");
                         return;
                     default:
                         Console.WriteLine("Invalid choice!");
