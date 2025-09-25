@@ -1,13 +1,12 @@
-﻿using System;
-using System.IO;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace DiaryApp
 {
-    internal class Program
+    public class Program
     {
-        private static readonly string todoFilePath = "todo.txt";
-        //notes = List<DiaryEntry>; TODO
-        // Dictionary<DateTime, DiaryEntry>; TODO
+        public static List<DiaryEntry> LocalEntries = new List<DiaryEntry>();
+        public static Dictionary<DateTime, DiaryEntry> LocalEntriesWithDate = new Dictionary<DateTime, DiaryEntry>();
         static void Main()
         {
             while (true)
@@ -25,13 +24,13 @@ namespace DiaryApp
                 switch (choice)
                 {
                     case MenuChoice.WriteNote:
-                        Serializer.WriteNote();
+                        DiaryMethods.WriteNote();
                         break;
                     case MenuChoice.ShowEntries:
-                        Serializer.ShowEntries();
+                        DiaryMethods.ShowEntries();
                         break;
                     case MenuChoice.ShowEntryOnDate:
-                        Serializer.ShowEntryOnDate();
+                        DiaryMethods.ShowEntryOnDate();
                         break;
                     case MenuChoice.SaveEntries:
                         Serializer.SaveEntries();
@@ -47,7 +46,7 @@ namespace DiaryApp
                         break;
                 }
 
-            } 
+            }
         }
 
         private static MenuChoice GetMenuChoice()
