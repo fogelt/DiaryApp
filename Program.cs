@@ -7,8 +7,7 @@ namespace DiaryApp
     public class Program
     {
         public static List<DiaryEntry> LocalEntries = new List<DiaryEntry>();
-        public static Dictionary<DateTime, List<DiaryEntry>> LocalEntriesWithDate
-    = new Dictionary<DateTime, List<DiaryEntry>>();
+        public static Dictionary<DateTime, List<DiaryEntry>> LocalEntriesWithDate = new Dictionary<DateTime, List<DiaryEntry>>();
 
         static void Main()
         {
@@ -25,42 +24,35 @@ namespace DiaryApp
                 Console.WriteLine("8. Exit program");
 
                 MenuChoice choice = GetMenuChoice();
+                Console.Clear();
 
                 switch (choice)
                 {
                     case MenuChoice.WriteNote:
-                        Console.Clear();
                         DiaryMethods.WriteNote();
                         break;
                     case MenuChoice.ShowEntries:
-                        Console.Clear();
                         DiaryMethods.ShowEntries();
                         break;
                     case MenuChoice.ShowEntryOnDate:
-                        Console.Clear();
                         DiaryMethods.ShowEntryOnDate();
                         break;
                     case MenuChoice.SaveEntries:
-                        Console.Clear();
                         Serializer.SaveEntries();
                         break;
                     case MenuChoice.LoadEntries:
-                        Console.Clear();
                         Serializer.LoadEntries();
                         break;
-                     case MenuChoice.RemoveEntry:
-                        Console.Clear();
+                    case MenuChoice.RemoveEntry:
                         DiaryMethods.DeleteEntry();
                         break;
-                     case MenuChoice.EditEntry:
-                        Console.Clear();
+                    case MenuChoice.EditEntry:
                         DiaryMethods.UpdateEntry();
                         break;
                     case MenuChoice.Exit:
                         Console.WriteLine("---Exiting---");
                         return;
                     default:
-                        Console.Clear();
                         Console.WriteLine("Invalid choice!");
                         DiaryMethods.MethodFinished();
                         break;

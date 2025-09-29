@@ -25,6 +25,7 @@ namespace DiaryApp.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error while saving: {ex.Message}");
+                ErrorLogger.WriteErrorLog(ex.Message);
             }
             DiaryMethods.MethodFinished();
         }
@@ -64,6 +65,7 @@ namespace DiaryApp.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error while loading: {ex.Message}");
+                ErrorLogger.WriteErrorLog(ex.Message);
             }
             DiaryMethods.MethodFinished();
         }

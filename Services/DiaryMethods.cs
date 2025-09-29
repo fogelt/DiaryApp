@@ -74,6 +74,7 @@ namespace DiaryApp.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error: {ex.Message}");
+                ErrorLogger.WriteErrorLog(ex.Message);
             }
             MethodFinished();
         }
@@ -106,7 +107,7 @@ namespace DiaryApp.Services
                         {
                             Program.LocalEntriesWithDate.Remove(date);
                         }
-                        
+
                         Program.LocalEntries.Remove(toRemove);
 
                         Console.WriteLine("Entry deleted - You must save to make it permanent");
@@ -128,6 +129,7 @@ namespace DiaryApp.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error: {ex.Message}");
+                ErrorLogger.WriteErrorLog(ex.Message);
             }
             MethodFinished();
         }
@@ -186,6 +188,7 @@ namespace DiaryApp.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error: {ex.Message}");
+                ErrorLogger.WriteErrorLog(ex.Message);
             }
             MethodFinished();
         }

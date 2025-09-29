@@ -12,6 +12,5 @@ namespace DiaryApp.Models
             Text = text;
         }
 
-        public DiaryEntry() { }
     }
 }
